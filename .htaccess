@@ -1,0 +1,59 @@
+# ============================================================
+#  StudentPortal — Apache Configuration
+#  Place this file at the project root.
+#  Requires: AllowOverride All in httpd.conf (XAMPP default on)
+# ============================================================
+
+Options -Indexes -MultiViews
+ServerSignature Off
+
+# ── Protect config and includes directories ──────────────────
+<FilesMatch "^(db\.php|auth\.php|student\.php)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /student_portal/
+
+    # Block direct access to config/ and includes/
+    RewriteRule ^(config|includes)/ - [F,L]
+
+    # Remove trailing slash from non-directories
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+</IfModule>
+
+# ── Security headers ─────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    # Uncomment on HTTPS:
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ── Prevent access to hidden files (.git, .env etc.) ─────────
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# ── Cache static assets ───────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css             "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/svg+xml        "access plus 1 month"
+</IfModule>
+
+# ── PHP settings (override php.ini for this app) ─────────────
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag log_errors     On
+    php_value error_log     logs/php_errors.log
+    php_flag session.cookie_httponly On
+    php_flag session.use_strict_mode On
+    php_value session.gc_maxlifetime 1800
+</IfModule>
