@@ -1,10 +1,4 @@
-/**
- * StudentPortal — Client-side JS
- * Handles: password strength, show/hide pw, form validation UX,
- * submit spinner, auto-dismiss alerts, session timeout warning.
- */
-
-/* ── Password visibility toggle ─────────────────────────────────────────── */
+/* Password visibility toggle */
 document.querySelectorAll('.toggle-pw').forEach(btn => {
   btn.addEventListener('click', () => {
     const input = document.querySelector(btn.dataset.target);
@@ -16,7 +10,7 @@ document.querySelectorAll('.toggle-pw').forEach(btn => {
   });
 });
 
-/* ── Password strength meter ─────────────────────────────────────────────── */
+/* Password strength meter */
 const pwInput     = document.getElementById('password');
 const strengthWrap = document.querySelector('.pw-strength');
 const strengthFill = document.querySelector('.pw-strength-fill');
@@ -54,7 +48,7 @@ if (pwInput && strengthWrap) {
   });
 }
 
-/* ── Confirm password live match indicator ───────────────────────────────── */
+/* Confirm password live match indicator */
 const confirmInput = document.getElementById('confirm_password');
 if (pwInput && confirmInput) {
   const checkMatch = () => {
@@ -83,7 +77,7 @@ if (pwInput && confirmInput) {
   pwInput.addEventListener('input', checkMatch);
 }
 
-/* ── Submit button → spinner ─────────────────────────────────────────────── */
+/* Submit button → spinner */
 document.querySelectorAll('form').forEach(form => {
   form.addEventListener('submit', function () {
     const btn = this.querySelector('button[type="submit"]');
@@ -99,7 +93,7 @@ document.querySelectorAll('form').forEach(form => {
   });
 });
 
-/* ── Auto-dismiss alerts ─────────────────────────────────────────────────── */
+/* Auto-dismiss alerts */
 document.querySelectorAll('.alert').forEach(alert => {
   if (alert.classList.contains('alert-success')) {
     setTimeout(() => {
@@ -110,7 +104,7 @@ document.querySelectorAll('.alert').forEach(alert => {
   }
 });
 
-/* ── Input focus — clear error state ────────────────────────────────────── */
+/* Input focus — clear error state */
 document.querySelectorAll('.form-input').forEach(input => {
   input.addEventListener('input', () => {
     input.classList.remove('error');
@@ -119,7 +113,7 @@ document.querySelectorAll('.form-input').forEach(input => {
   });
 });
 
-/* ── Session timeout warning (dashboard) ───────────────────────────────── */
+/* Session timeout warning (dashboard) */
 const SESSION_MS  = 30 * 60 * 1000;   // 30 min
 const WARNING_MS  = 5  * 60 * 1000;   // warn at 5 min remaining
 
@@ -145,7 +139,7 @@ if (document.body.classList.contains('is-dashboard')) {
   }, 30000); // check every 30 s
 }
 
-/* ── Dismiss session warning ─────────────────────────────────────────────── */
+/* Dismiss session warning */
 const dismissBtn = document.getElementById('dismiss-warning');
 const warningBanner = document.getElementById('session-warning');
 if (dismissBtn && warningBanner) {
@@ -156,7 +150,7 @@ if (dismissBtn && warningBanner) {
   });
 }
 
-/* ── Animate stat cards on load (dashboard) ─────────────────────────────── */
+/* Animate stat cards on load (dashboard) */
 if (document.body.classList.contains('is-dashboard')) {
   const cards = document.querySelectorAll('.stat-card, .info-card');
   cards.forEach((card, i) => {

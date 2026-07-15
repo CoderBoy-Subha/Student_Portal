@@ -1,14 +1,6 @@
-/* ============================================================
-   StudentPortal — Design System
-   A clean, trustworthy academic aesthetic:
-   Deep navy + warm white + indigo accent.
-   Inter for body, system-stack fallback.
-   Signature element: glowing indigo left-border card.
-   ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
 
-/* ── Tokens ── */
+/* Tokens */
 :root {
   --navy:        #0f1e3c;
   --navy-mid:    #1a3260;
@@ -42,7 +34,7 @@
   --transition: 0.18s ease;
 }
 
-/* ── Reset ── */
+/* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -56,21 +48,21 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Typography ── */
+/* Typography */
 .font-display {
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
 }
 
 h1, h2, h3, h4 { line-height: 1.25; color: var(--navy); }
 
-/* ── Layout helpers ── */
+/* Layout helpers */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* ── Auth layout (register / login) ── */
+/* Auth layout (register / login) */
 .auth-page {
   min-height: 100vh;
   display: grid;
@@ -230,7 +222,7 @@ h1, h2, h3, h4 { line-height: 1.25; color: var(--navy); }
   margin-bottom: 32px;
 }
 
-/* ── Form elements ── */
+/* Form elements */
 .form-group {
   margin-bottom: 20px;
 }
@@ -340,7 +332,7 @@ h1, h2, h3, h4 { line-height: 1.25; color: var(--navy); }
   color: var(--text-muted);
 }
 
-/* ── Buttons ── */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -418,7 +410,7 @@ h1, h2, h3, h4 { line-height: 1.25; color: var(--navy); }
   border-color: var(--error);
 }
 
-/* ── Alerts ── */
+/* Alerts */
 .alert {
   padding: 12px 16px;
   border-radius: var(--radius-sm);
@@ -475,7 +467,7 @@ h1, h2, h3, h4 { line-height: 1.25; color: var(--navy); }
   margin: 24px 0;
 }
 
-/* ── Dashboard layout ── */
+/* Dashboard layout */
 .dashboard-page {
   min-height: 100vh;
   background: var(--off-white);
@@ -652,7 +644,7 @@ h1, h2, h3, h4 { line-height: 1.25; color: var(--navy); }
   .welcome-banner { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
 }
 
-/* ── Stat cards ── */
+/* Stat cards */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -714,7 +706,7 @@ h1, h2, h3, h4 { line-height: 1.25; color: var(--navy); }
   margin-top: 4px;
 }
 
-/* ── Info cards ── */
+/* Info cards */
 .cards-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -803,7 +795,7 @@ h1, h2, h3, h4 { line-height: 1.25; color: var(--navy); }
 .activity-ip    { font-size: 11px; color: var(--text-muted); font-family: monospace; }
 .activity-time  { font-size: 11px; color: var(--text-muted); text-align: right; flex-shrink: 0; }
 
-/* ── Status badge ── */
+/* Status badge */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -818,7 +810,7 @@ h1, h2, h3, h4 { line-height: 1.25; color: var(--navy); }
 .badge-error   { background: var(--error-bg);   color: var(--error); }
 .badge-warning { background: var(--warning-bg); color: var(--warning); }
 
-/* ── Misc ── */
+/* Misc */
 .section-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
