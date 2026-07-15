@@ -1,12 +1,6 @@
 <?php
-// ============================================================
-//  includes/auth.php — Session bootstrap, guards, helpers
-//  Compatible: PHP 7.4+ | InfinityFree
-// ============================================================
-
 require_once __DIR__ . '/../config/db.php';
 
-// Start session once, using individual params for max host compatibility
 if (session_status() === PHP_SESSION_NONE) {
     $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
     session_set_cookie_params(SESSION_LIFETIME, '/', '', $secure, true);

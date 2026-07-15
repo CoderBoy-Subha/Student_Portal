@@ -1,8 +1,6 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
--- -------------------------------------------------------------------------
 -- TABLES
--- -------------------------------------------------------------------------
 
 CREATE TABLE students (
     id               INT UNSIGNED     NOT NULL AUTO_INCREMENT,

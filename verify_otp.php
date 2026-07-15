@@ -9,7 +9,6 @@ $type       = isset($_GET['type']) ? $_GET['type'] : 'register';
 $page_error = null;
 $page_ok    = null;
 
-// Validate we have a pending session for this type
 if ($type === 'register' && empty($_SESSION['reg_otp'])) {
     header('Location: register.php');
     ob_end_flush(); exit;
@@ -25,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $action = isset($_POST['action']) ? $_POST['action'] : 'verify';
 
-        // Resend OTP
         if ($action === 'resend') {
             $otp = generate_otp();
             if ($type === 'register') {
@@ -47,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $page_ok = 'A new OTP has been sent to your email.';
 
         } else {
-            // Verify OTP
             $otp_input = trim(isset($_POST['otp']) ? $_POST['otp'] : '');
             if ($otp_input === '') {
                 $page_error = 'Please enter the OTP.';
@@ -184,7 +181,6 @@ $subtitle = $type === 'register' ? 'Complete your registration' : 'Reset your pa
 </div>
 <script src="assets/js/app.js"></script>
 <script>
-// Auto-format OTP input — digits only
 var otpInput = document.getElementById('otp');
 if (otpInput) {
     otpInput.addEventListener('input', function() {

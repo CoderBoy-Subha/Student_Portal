@@ -46,8 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors['confirm_password'] = 'Passwords do not match.';
         }
 
-        // Photo staging (optional) — moved into UPLOAD_STAGE (open_basedir safe).
-        // Final move to uploads/avatars/ only after OTP succeeds.
         $photo_stage = null;
         if (isset($_FILES['photo']) && $_FILES['photo']['error'] !== UPLOAD_ERR_NO_FILE) {
             if ($_FILES['photo']['error'] !== UPLOAD_ERR_OK) {

@@ -5,7 +5,7 @@ define('DB_USER',    'if0_42287710');
 define('DB_PASS',    'Subha27052003');
 define('DB_CHARSET', 'utf8mb4');
 
-// ── APP ──────────────────────────────────────────────────────
+//APP
 define('APP_NAME',           'StudentPortal');
 define('APP_URL',            'https://subhajit.infinityfree.io/');
 define('SESSION_LIFETIME',   1800);
@@ -14,9 +14,7 @@ define('LOCKOUT_MINUTES',    15);
 define('BCRYPT_COST',        10);
 define('OTP_EXPIRY_MINUTES', 10);
 
-// ── SMTP MAIL ─────────────────────────────────────────────────
-// For Gmail: use an App Password from myaccount.google.com/apppasswords
-// For InfinityFree: use smtp.infinityfree.com with your email account
+//SMTP MAIL
 define('SMTP_ENABLED',    true);
 define('SMTP_HOST',       'smtp.gmail.com');
 define('SMTP_PORT',       587);
@@ -28,14 +26,13 @@ define('MAIL_FROM',      'itzsubha2705@gmail.com');
 define('MAIL_FROM_NAME',  'StudentPortal');
 define('SMTP_TIMEOUT',    10);  // seconds — keeps page responsive if SMTP blocked
 
-// ── UPLOADS ──────────────────────────────────────────────────
+//UPLOADS
 // UPLOAD_DIR must be writable. InfinityFree: htdocs/student_portal/uploads/avatars/
 define('UPLOAD_DIR',    __DIR__ . '/../uploads/avatars/');
 define('UPLOAD_STAGE',  __DIR__ . '/../uploads/stage/');   // temp staging before OTP
 define('UPLOAD_URL',    APP_URL . '/uploads/avatars/');
 define('MAX_FILE_SIZE', 2097152); // 2 MB in bytes
 
-// ─────────────────────────────────────────────────────────────
 
 function db()
 {

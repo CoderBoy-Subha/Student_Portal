@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } elseif (!is_valid_email($email)) {
             $page_error = 'Please enter a valid email address.';
         } else {
-            // Always show success to prevent email enumeration
             $stmt = db()->prepare('SELECT id, full_name, account_status FROM students WHERE email=? LIMIT 1');
             $stmt->execute(array($email));
             $student = $stmt->fetch();
